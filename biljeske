@@ -1,0 +1,30 @@
+<div>
+    NASLOV
+    LISTA ili P
+    
+    
+Opsti patern:
+
+<div class="usluga">
+    <div class="row margin-b-40">
+        <div class="col-sm-6">
+            <h2>N A S L O V</h2>
+        </div>
+    </div>
+    ////////////////////////////////////////////////////////////
+    //Ovdje se moze javiti bilo koji od sljedecih elemenata, nedefinisan broj puta i redoslijeda pojavljivanja
+    ////////////////////////////////////////////////////////////
+    //1 - obicni paragraf
+        <p> Tekst
+        </p>
+    ////////////////////////////////////////////////////////////
+    //2 - ul uvucen s bulletsima u obliku tackica
+        <ul class="lista-stavke">
+            <li> tekst </li>
+        </ul>
+    ////////////////////////////////////////////////////////////
+    //3 - Heading medium velicine sa ovim osobinama
+        <br>
+        <p><b> TEKST </b> </p>
+    ////////////////////////////////////////////////////////////
+</div>

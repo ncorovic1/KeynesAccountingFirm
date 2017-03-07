@@ -1,0 +1,37 @@
+.usluga{
+  border: 1px solid black;
+  padding: 10px;
+  margin:5px;
+}
+.delete_dugme, .post_dugme{
+  background-color: #840404;
+  text-transform: uppercase;
+  outline: 0;
+  width: 20%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  margin:5px;
+}
+.nova_usluga{
+  width: 100%;
+}
+.nova_usluga #naslov_usluge{
+  width: 40%;
+  font-size: 14px;
+  border: 1px solid black;
+  padding: 10px;
+  margin:5px;
+}
+.nova_usluga #tekst_usluge{
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid black;
+  padding: 10px;
+  margin:5px;
+}
+.usluga_naslov{
+  font-size: 30px;
+  margin:5px;
+}
