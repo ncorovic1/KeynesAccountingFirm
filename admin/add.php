@@ -28,6 +28,11 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico"/>
         <link rel="icon" href="../img/logo2.png">
+        
+        <!-- Nino -->
+        <script src="../vendor/jquery.min.js" type="text/javascript"></script>
+        <script src="../vendor/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="js/jqueryFormFields.js" type="text/javascript"></script>
     </head>
     <!-- END HEAD -->
 
@@ -87,66 +92,93 @@
         </div>
         <!--========== PARALLAX ==========-->
         
+        <style>
+            textarea {
+                margin-bottom: 15px;
+                resize: none;
+            }
+            .redWhite {
+                border: 1px #840404 solid; 
+                background-color: white; 
+                color: #840404;
+            }
+        </style>
+        <?php
+            include 'dodavanjeUsluge.php';
+        ?>
         <div class="content-lg container">
-<!--
-            <div class="usluga">
-                <div class="row margin-b-40">
-                    <div class="col-sm-6">
-                        <h2>Finansijsko Računovodstvo</h2>
-                    </div>
-                </div>
-
-                <div class="lista">
-                    <p>Vođenje poslovnih knjiga podrazumijeva sljedeće poslove i radnje:</p>
-                    <ul class="lista-stavke">
-                        <li>Vođenje glavne knjige</li>
-                        <li>Vođenje analitičkih evidencija: kupaca, dobavljača, blagajne, tekućih računa, robe, materijala, lična primanja, osnovna sredstva</li>
-                        <li>Vođenje pomoćnih evidencija: Knjiga ulaznih faktura, knjiga izlaznih faktura, knjiga blagajne</li>
-                        <li>Obračun PDV-a, poreza na dohodak građana po ugovorima: o djelu, autorstvu, zakupu nepokretnosti, zakupu pokretnih stvari</li>
-                        <li>Obračun akcize</li>
-                        <li>Sastavljanje poreskih prijava i drugih obračuna</li>
-                        <li>Izvod otvorenih stavki kupaca, dobavljača</li>
-                        <li>Izvještaj analitičkih kartica na dan, za period</li>
-                        <li>Sastavljanje zaključnog lista i bruto bilansa na željeni datum</li>
-                        <li>Sastavljanje godišnjeg finansijskog izvještaja za mala i srednja pravna lica i preduzetnike</li>
-                        <li>Sastavljanje vanrednih finansijskih izveštaja: likvidacioni, bilans pripajanja, bilans spajanja, diobni bilansi,  sastavljanje finansijskih izveštaja u svrhu dobijanja kredita od banaka</li>
-                        <li>Sastavljanje poreskog bilansa i poreske prijave</li>
-                        <li>Obračun poreza na imovinu</li>
-                        <li>Sastavljanje godišnje prijave na dohodak gradjana</li>
-                    </ul>
-                </div>
-                <button class="delete_dugme">Brisi uslugu</button>
-            </div>
--->
             <div class="nova_usluga">
                 <hr>
-                <form method="get" id="role">   
-                    <h3 class="usluga_naslov">Nova Usluga</h3>
-                    <div>
-                        <textarea type="text" placeholder="Tekst Usluge" id="tekst_usluge" rows="15" name="yes"
-                                  style="display: none";></textarea>
+                <form method="get">   
+                    <h3 class="usluga_naslov">Nova Usluga</h3> 
+                    <div id="allFields">
+                        <div class="form-group">
+                            <label class="col-md-2" style="padding-left: 18px;">
+                                Redni broj: </label>
+                            <textarea class="col-md-10" placeholder="Redni broj(pozicija)" rows="1" name="RB"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-2" style="padding-left: 18px;">
+                                Identifikator: </label>
+                            <textarea class="col-md-10" placeholder="Identifikator(pretrazivanje)" rows="1" name="ID"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2" style="padding-left: 18px;">
+                                Glavni naslov: </label>
+                            <textarea class="col-md-10" placeholder="Naslov usluge" rows="1" name="Header"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <select style="width: 150px; border: none;" name="type[]">
+                                    <option value=1> Paragraf        </option>
+                                    <option value=2> Sporedni naslov </option>
+                                    <option value=3> Bullets         </option>
+                                </select>
+                            </div>
+                            <textarea class="col-md-9" placeholder="Tekst" rows="3" name="text[]"></textarea>
+                            <div class="col-md-1">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default removeButton redWhite">
+                                            <i class="fa fa-minus"></i></button>
+                                        <button type="button" class="btn btn-default addButton redWhite">
+                                            <i class="fa fa-plus"></i></button>
+                                    </div>                                        
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div><div>
+                                    <div class="col-md-12">
+                                        <button type="button" class="redWhite addButton" style="width: 100%; border-radius: 2px;"> 
+                                            Nova komponenta </button>
+                                    </div>
+                            </div></div>
+                        </div>
                     </div>
-                    <div>
-                        <textarea type="text" placeholder="Tekst Usluge" id="tekst_usluge" rows="15" name="yes"
-                                  style="display: none";></textarea>
-                    </div>
-                    <div>
-                        <textarea type="text" placeholder="Tekst Usluge" id="tekst_usluge" rows="15" name="yes"
-                                  style="display: none";></textarea>
-                    </div>
-                    <input type="text" placeholder="Naslov Usluge" id="naslov_usluge">
-                    <textarea type="text" placeholder="Tekst Usluge" id="tekst_usluge" rows="15" name="yes"></textarea>
-                    <button class="post_dugme">Dodaj uslugu</button>
+                                    
+                    <br><br>
+                    <button type="submit" class="post_dugme" name="submit">Dodaj uslugu</button>
                 </form>
                 <hr>
             </div>
         </div>
-        <script>
-            alert("rs");
-            alert(document.getElementById("role").innerHTML); 
-        </script>
         <!--========== END PAGE LAYOUT ==========-->
-
+        
+        <!--========== JQUERY FORM ==========-->
+        <script>
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                    $("#allFields").append("<p> dsada </p>");
+                });
+            });
+        </script>
+        <!--========== END JQUERY ==========-->
+        
         <!--========== FOOTER ==========-->
         <footer class="footer-distributed">
             <div class="container">
@@ -194,8 +226,6 @@
 
         <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->
-        <script src="../vendor/jquery.min.js" type="text/javascript"></script>
-        <script src="../vendor/jquery-migrate.min.js" type="text/javascript"></script>
         <script src="../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
         <!-- PAGE LEVEL PLUGINS -->
