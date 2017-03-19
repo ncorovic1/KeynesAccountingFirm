@@ -1,3 +1,15 @@
+<?php
+    session_start();
+	
+	require_once ('user.php');
+	$user = new USER();
+
+	if( $user->logovan() != true )
+	{
+		$user->preusmjeri('index.php');
+	}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" class="no-js">
@@ -71,8 +83,8 @@
                                     Dodavanje</a></li>  
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="update.php">
                                     Izmjena</a></li>   
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="">
-                                    Log Out</a></li>   
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="logout.php?logout=true">
+                                    Log Out</a></li>  
                             </ul>
                         </div>
                     </div>
@@ -109,19 +121,13 @@
         <div class="content-lg container">
             <div class="nova_usluga">
                 <hr>
-                <form method="get">   
+                <form method="POST">   
                     <h3 class="usluga_naslov">Nova Usluga</h3> 
                     <div id="allFields">
                         <div class="form-group">
                             <label class="col-md-2" style="padding-left: 18px;">
                                 Redni broj: </label>
                             <textarea class="col-md-10" placeholder="Redni broj(pozicija)" rows="1" name="RB"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="col-md-2" style="padding-left: 18px;">
-                                Identifikator: </label>
-                            <textarea class="col-md-10" placeholder="Identifikator(pretrazivanje)" rows="1" name="ID"></textarea>
                         </div>
 
                         <div class="form-group">
