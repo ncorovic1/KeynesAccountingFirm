@@ -1,25 +1,24 @@
 <?php
     require_once('database.php'); 
     
-    if( isset($_GET['RB'], $_GET['ID'], $_GET['Header'], $_GET['submit']) &&
-        $_GET['RB'] != null && $_GET['ID'] != null && $_GET['Header'] != null ) {
+    if( isset($_POST['RB'], $_POST['Header'], $_POST['submit']) &&
+        $_POST['RB'] != null && $_POST['Header'] != null ) {
         
-        $position      = $_GET['RB'];
-        $identificator = $_GET['ID'];
-        $header        = $_GET['Header'];
+        $position      = $_POST['RB'];
+        $header        = $_POST['Header'];
         
         $tipoviPolja         = array();
         $vrijednostiPolja    = array();
         $vrijednostiBulletsa = array();
 
-        foreach ($_GET['type'] as $key => $value) {
+        foreach ($_POST['type'] as $key => $value) {
             
-            if( !isset($_GET['text'][$key]) || $_GET['text'][$key] == "")
+            if( !isset($_POST['text'][$key]) || $_POST['text'][$key] == "")
                 continue;
             
             $tipoviPolja[$key]         = $value;  
-            $vrijednostiPolja[$key]    = $_GET['text'][$key];
-            $vrijednostiBulletsa[$key] = $value ==  3 ? explode(PHP_EOL, $_GET['text'][$key]) : 0;
+            $vrijednostiPolja[$key]    = $_POST['text'][$key];
+            $vrijednostiBulletsa[$key] = $value ==  3 ? explode(PHP_EOL, $_POST['text'][$key]) : 0;
         }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //DB INSERT
@@ -32,12 +31,11 @@
 //SERVICES         
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             $services = "INSERT
-                         INTO   services(`position`, `identificator`, `header`) 
-                         VALUES(:position, :identificator, :header)";
+                         INTO   services(`position`, `header`) 
+                         VALUES(:position, :header)";
 
             $query = $connection->prepare($services);
             $query->bindParam(':position',      $position,      PDO::PARAM_STR);
-            $query->bindParam(':identificator', $identificator, PDO::PARAM_STR);
             $query->bindParam(':header',        $header,        PDO::PARAM_STR);
             $rezultat = $query->execute();
             $service_id = $connection->lastInsertId();
@@ -80,7 +78,6 @@
             
             if (!$rezultat) {
                     $greska = $query->errorInfo();
-                    echo "ohhh";
                     print "SQL greska: ".$greska[2];
                     exit();
             }
