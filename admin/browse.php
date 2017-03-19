@@ -338,15 +338,6 @@
                 </div>
                 <button class="delete_dugme">Brisi uslugu</button>
             </div>
-
-
-            <div class="nova_usluga">
-                <hr>
-                <h3 class="usluga_naslov">Nova Usluga</h3>
-                <input type="text" placeholder="Naslov Usluge" id="naslov_usluge">
-                <textarea type="text" placeholder="Tekst Usluge" id="tekst_usluge" rows="15"></textarea>
-                <button class="post_dugme">Dodaj uslugu</button>
-            </div>
         </div>
         <!--========== END PAGE LAYOUT ==========-->
 
