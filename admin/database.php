@@ -2,12 +2,12 @@
 
 	class Database {
 		private $DB_host = "localhost";
-		// private $DB_user = "infobosn_admin";
-		// private $DB_pass = "admin";
-		// private $DB_name = "infobosn_db";
-		private $DB_user = "admin";
-		private $DB_pass = "admin";
-		private $DB_name = "keynes";
+        private $DB_user = "keynesba_admin";
+		private $DB_pass = "admin3#3";
+		private $DB_name = "keynesba_db";
+//		private $DB_user = "admin";
+//		private $DB_pass = "admin";
+//		private $DB_name = "keynes";
 		private $DB_port = "3306";
 		public  $DB_con;
 		

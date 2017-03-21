@@ -175,16 +175,6 @@
         </div>
         <!--========== END PAGE LAYOUT ==========-->
         
-        <!--========== JQUERY FORM ==========-->
-        <script>
-            $(document).ready(function(){
-                $("#btn1").click(function(){
-                    $("#allFields").append("<p> dsada </p>");
-                });
-            });
-        </script>
-        <!--========== END JQUERY ==========-->
-        
         <!--========== FOOTER ==========-->
         <footer class="footer-distributed">
             <div class="container">
@@ -216,7 +206,7 @@
 
           			<div class="footer-right">
             				<p class="footer-company-about">
-                      <span>Keynes d.o.o.</span>
+                                <span>Keynes d.o.o.</span>
             					Knjigovodstvena agencija za mala i srednja preduzeca, udruzenja, ugostiteljske radnje, obrte i dr.
             				</p>
             				<div class="footer-icons">

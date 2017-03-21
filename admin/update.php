@@ -45,6 +45,7 @@
         <script src="../vendor/jquery.min.js" type="text/javascript"></script>
         <script src="../vendor/jquery-migrate.min.js" type="text/javascript"></script>
         <script src="js/jqueryFormFields.js" type="text/javascript"></script>
+        <script src="js/ajaxPopulateUpdate.js" type="text/javascript"></script>
     </head>
     <!-- END HEAD -->
 
@@ -117,22 +118,25 @@
         </style>
         <?php
             include 'dodavanjeUsluge.php';
+            include 'brisanjeUslugePoID.php'
         ?>
-        
-        <div class="row">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-10">
-                <select class="col-md-10 redWhite" id="chooseHeader">
-                    <?php
-                        include 'izlistavanjeNaslovaUsluga.php';
-                    ?>
-                </select>
-            </div>
-            <div class="col-md-2">
-            </div>
-        </div>
         <div class="content-lg container">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <label class="col-md-2" style="padding-left: 18px;">
+                                Naslov usluge: </label>
+                    <select class="col-md-10 redWhite" id="chooseHeader" onchange="populateUpdate()">
+                        <option value=""> Izaberite uslugu prema naslovu:</option>
+                        <?php
+                            include 'izlistavanjeNaslovaUsluga.php';
+                        ?>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
             <div class="nova_usluga">
                 <hr>
                 <form method="POST">   
@@ -182,22 +186,12 @@
                     </div>
                                     
                     <br><br>
-                    <button type="submit" class="post_dugme" name="submit">Dodaj uslugu</button>
+                    <button type="submit" class="post_dugme" name="submit">Izmijeni uslugu</button>
                 </form>
                 <hr>
             </div>
         </div>
         <!--========== END PAGE LAYOUT ==========-->
-        
-        <!--========== JQUERY FORM ==========-->
-        <script>
-            $(document).ready(function(){
-                $("#btn1").click(function(){
-                    $("#allFields").append("<p> dsada </p>");
-                });
-            });
-        </script>
-        <!--========== END JQUERY ==========-->
         
         <!--========== FOOTER ==========-->
         <footer class="footer-distributed">

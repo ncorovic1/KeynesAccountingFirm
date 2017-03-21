@@ -1,6 +1,7 @@
 <?php
     require_once('database.php'); 
     
+    isset($_POST['deleteID']) ? $_GET['deleteID'] = $_POST['deleteID'] : "";
     if( isset($_GET['deleteID']) && $_GET['deleteID'] > 0) {
         
         $se_id = $_GET['deleteID'];

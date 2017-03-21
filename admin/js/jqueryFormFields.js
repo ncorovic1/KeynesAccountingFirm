@@ -23,7 +23,7 @@ $(document).ready(function() {
                                     </div>
                             </div>`;
         //+ Field
-        $(wrapper).on("click",".addButton", function(e){
+        $(wrapper).on("click",".addButton", function(e) {
             e.preventDefault(); 
             $(this).parent('div').parent('div').parent('div').parent('div').before(addRowField); 
         });
