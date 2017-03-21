@@ -71,8 +71,7 @@
                         <div class="menu-container">
                             <ul class="navbar-nav navbar-nav-right">
                               <li class="nav-item"><a class="nav-item-child nav-item-hover" href="index.html">Početna</a></li>
-                              <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="usluge.html">Usluge</a></li>
-
+                              <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="usluge.php">Usluge</a></li>
                               <li class="nav-item"><a class="nav-item-child nav-item-hover" href="onama.html">O nama</a></li>
                               <li class="nav-item"><a class="nav-item-child nav-item-hover" href="kontakt.html">Kontakt</a></li>
                             </ul>
